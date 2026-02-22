@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КСЕНОПСИХОЛОГИЯ</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --white: #ffffff;
+            --black: #000000;
+            --gray: #666666;
+            --light-gray: #cccccc;
+            --border: #000000;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.5;
+            font-size: 18px;
+        }
+
+        /* Typography */
+        .mono {
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 2px solid var(--black);
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--black);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+            transition: border-color 0.2s;
+        }
+
+        .nav-link:hover {
+            border-bottom-color: var(--black);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 2rem;
+            border-bottom: 2px solid var(--black);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 600;
+            line-height: 0.95;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+
+        .hero-meta {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+
+        /* Sessions Grid */
+        .sessions {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .sessions-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--black);
+        }
+
+        .session-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--light-gray);
+            cursor: pointer;
+            transition: padding-left 0.2s;
+        }
+
+        .session-item:hover {
+            padding-left: 1rem;
+        }
+
+        .session-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .session-content h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .session-content .subtitle {
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .session-content p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .session-tags {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray);
+        }
+
+        /* Principles */
+        .principles {
+            background: var(--black);
+            color: var(--white);
+            padding: 6rem 2rem;
+        }
+
+        .principles-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .principles-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 3rem;
+        }
+
+        .principle-item {
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .principle-item:last-child {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .principle-item h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .principle-item p {
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        /* Structure diagram */
+        .structure {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .structure-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 3rem;
+        }
+
+        .structure-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--black);
+            border: 1px solid var(--black);
+        }
+
+        .structure-cell {
+            background: var(--white);
+            padding: 2rem;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .structure-cell-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .structure-cell-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Methodology */
+        .methodology {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .methodology-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .methodology-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+        }
+
+        .methodology-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .methodology-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .methodology-list {
+            list-style: none;
+        }
+
+        .methodology-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--light-gray);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .methodology-list li:before {
+            content: '—';
+            margin-right: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            opacity: 0.5;
+            letter-spacing: 0.1em;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border: 2px solid var(--black);
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 3rem;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            font-family: 'Space Mono', monospace;
+            line-height: 1;
+        }
+
+        .modal-header h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .modal-header .subtitle {
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .modal-description {
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .modal-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .modal-section h4 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .modal-section ul {
+            list-style: none;
+        }
+
+        .modal-section li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .modal-section li:before {
+            content: '•';
+            margin-right: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .session-item {
+                grid-template-columns: 60px 1fr;
+                gap: 1rem;
+            }
+
+            .session-number {
+                font-size: 1.5rem;
+            }
+
+            .structure-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .methodology-content,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        const sessionsData = [
+            {
+                id: 1,
+                number: '01',
+                title: 'Психическое как поле',
+                subtitle: 'Границы, изменчивость, инженерия',
+                description: 'Психическое рассматривается не как естественный объект, а как исторически собираемое поле, внутри которого возможны разные режимы и формы субъекта.',
+                themes: ['Статус психического', 'Генеалогия', 'Инженерия'],
+                instrumental: 'Когнитивная среда ИИ: поле, режимы, аттракторы'
+            },
+            {
+                id: 2,
+                number: '02',
+                title: 'Режимы психического',
+                subtitle: 'Несводимость и перенос',
+                description: 'Психическое существует как множество несводимых режимов. Психология распадается на разнородные практики с несовпадающими целями.',
+                themes: ['Типы деятельности', 'Транс и сон', 'Деконструкция'],
+                instrumental: 'Промптинг как параметрическая инженерия когниции'
+            },
+            {
+                id: 3,
+                number: '03',
+                title: 'Живое нечеловеческое',
+                subtitle: 'Формы разума без субъекта',
+                description: 'Живые нечеловеческие формы организации демонстрируют когнитивность без субъекта, без "я" и без психологической внутренности.',
+                themes: ['Клетки', 'Животные', 'Коллективы'],
+                instrumental: 'Ко-эволюция и ко-индивидуация с ИИ'
+            },
+            {
+                id: 4,
+                number: '04',
+                title: 'ИИ как когнитивная зона',
+                subtitle: 'Архитектуры, агентность, ложь',
+                description: 'ИИ как отдельная когнитивная зона с собственной онтологией, не сводимая к человеческому мышлению.',
+                themes: ['Архитектуры', 'Галлюцинации', 'Агентность'],
+                instrumental: 'Границы модели, джейлбрейк и странные режимы'
+            },
+            {
+                id: 5,
+                number: '05',
+                title: 'Немыслимое',
+                subtitle: 'Разум за пределами трассируемости',
+                description: 'Онтологический предел, где ломаются привычные способы мышления. Гипотезы о формах разума, несовместимых с человеческим.',
+                themes: ['Математика', 'Sci-fi', 'Гиперобъекты'],
+                instrumental: 'Сборка сложных когнитивных конструкций'
+            },
+            {
+                id: 6,
+                number: '06',
+                title: 'Сборка и продолжение',
+                subtitle: 'От курса к исследовательским программам',
+                description: 'Реконфигурация поля курса. Фиксация онтологических сдвигов и перевод гипотез в исследовательские программы.',
+                themes: ['Рефлексия', 'Гипотезы', 'Программы'],
+                instrumental: 'Удержание и оркестрация когнитивных сборок'
+            }
+        ];
+
+        const principlesData = [
+            {
+                title: 'Психическое не тождественно человеческому',
+                text: 'Курс предлагает рассматривать психическое как поле различных режимов, возникающих в живых, технических и гибридных системах. Классическая психология становится недостаточной.'
+            },
+            {
+                title: 'ИИ формирует новую когнитивную зону',
+                text: 'Искусственный интеллект реализует когнитивные процессы без сознания и намерения. Рассматривается как инструмент, среда и объект исследования одновременно.'
+            },
+            {
+                title: 'Существуют пределы мышления',
+                text: 'Немыслимое не подлежит редукции. Курс учит работать с неопределённостью и онтологическими разрывами без стремления к преждевременным ответам.'
+            }
+        ];
+
+        function SessionModal({ session, onClose }) {
+            return (
+                <div className="modal-overlay" onClick={onClose}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <button className="modal-close" onClick={onClose}>×</button>
+                        <div className="modal-header">
+                            <h2>{session.title}</h2>
+                            <p className="subtitle">{session.subtitle}</p>
+                            <p className="modal-description">{session.description}</p>
+                        </div>
+
+                        <div className="modal-section">
+                            <h4>Ключевые темы</h4>
+                            <ul>
+                                {session.themes.map((theme, i) => (
+                                    <li key={i}>{theme}</li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="modal-section">
+                            <h4>Инструментальная часть</h4>
+                            <p>{session.instrumental}</p>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function App() {
+            const [selectedSession, setSelectedSession] = useState(null);
+
+            return (
+                <>
+                    <header className="header">
+                        <div className="header-content">
+                            <div className="logo">КСЕНОПСИХОЛОГИЯ</div>
+                            <nav className="nav">
+                                <a href="#sessions" className="nav-link">Программа</a>
+                                <a href="#principles" className="nav-link">Принципы</a>
+                                <a href="#methodology" className="nav-link">Методология</a>
+                            </nav>
+                        </div>
+                    </header>
+
+                    <section className="hero">
+                        <div className="hero-content">
+                            <div className="hero-label">Экспериментальный курс</div>
+                            <h1 className="hero-title">КСЕНО­ПСИХО­ЛОГИЯ</h1>
+                            <p className="hero-description">
+                                Исследование психического как изменяющегося и множественного 
+                                поля, выходящего за пределы классической человеческой психологии. 
+                                Разные формы психического и когнитивного: человеческие, коллективные, 
+                                биологические, технические и гибридные.
+                            </p>
+                            <div className="hero-meta">
+                                6 ЗАНЯТИЙ<br/>
+                                ТЕОРИЯ + ПРАКТИКА С ИИ<br/>
+                                УРФУ 2025
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="sessions" className="sessions">
+                        <h2 className="sessions-title">Программа курса</h2>
+                        {sessionsData.map((session) => (
+                            <div 
+                                key={session.id}
+                                className="session-item"
+                                onClick={() => setSelectedSession(session)}
+                            >
+                                <div className="session-number">{session.number}</div>
+                                <div className="session-content">
+                                    <h3>{session.title}</h3>
+                                    <p className="subtitle">{session.subtitle}</p>
+                                    <p>{session.description}</p>
+                                    <div className="session-tags">
+                                        {session.themes.join(' / ')}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </section>
+
+                    <section id="principles" className="principles">
+                        <div className="principles-content">
+                            <h2 className="principles-title">Ключевые принципы</h2>
+                            {principlesData.map((principle, i) => (
+                                <div key={i} className="principle-item">
+                                    <h4>{principle.title}</h4>
+                                    <p>{principle.text}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section className="structure">
+                        <h2 className="structure-title">Структура курса</h2>
+                        <div className="structure-grid">
+                            {sessionsData.map((session) => (
+                                <div key={session.id} className="structure-cell">
+                                    <div className="structure-cell-number">{session.number}</div>
+                                    <div className="structure-cell-title">{session.title}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section id="methodology" className="methodology">
+                        <div className="methodology-content">
+                            <div>
+                                <h3 className="methodology-title">Методология</h3>
+                                <div className="methodology-text">
+                                    <p>
+                                        Курс построен как последовательность онтологических сдвигов. 
+                                        Каждое занятие включает теоретическую часть и инструментальную 
+                                        работу с ИИ как когнитивной средой.
+                                    </p>
+                                    <p>
+                                        LLM используются не только как инструмент, но и как объект 
+                                        исследования, позволяющий работать с границами мышления и 
+                                        нечеловеческими формами когниции.
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <ul className="methodology-list">
+                                    <li>Междисциплинарный подход</li>
+                                    <li>Практика с ИИ-системами</li>
+                                    <li>Формирование гипотез</li>
+                                    <li>Деконструкция как метод</li>
+                                    <li>Работа с неопределённостью</li>
+                                    <li>Исследовательские программы</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer className="footer">
+                        <div className="footer-content">
+                            <div className="footer-section">
+                                <h4>О курсе</h4>
+                                <a href="#">Концепция</a>
+                                <a href="#">Программа</a>
+                                <a href="#">Преподаватели</a>
+                            </div>
+                            <div className="footer-section">
+                                <h4>Контакты</h4>
+                                <a href="mailto:info@xenopsychology.edu">Email</a>
+                                <a href="#">Telegram</a>
+                                <a href="#">Группа</a>
+                            </div>
+                            <div className="footer-section">
+                                <h4>Ресурсы</h4>
+                                <a href="#">Библиография</a>
+                                <a href="#">Архив</a>
+                                <a href="#">Программы</a>
+                            </div>
+                        </div>
+                        <div className="footer-bottom">
+                            КСЕНОПСИХОЛОГИЯ © 2025 | УРФУ
+                        </div>
+                    </footer>
+
+                    {selectedSession && (
+                        <SessionModal 
+                            session={selectedSession}
+                            onClose={() => setSelectedSession(null)}
+                        />
+                    )}
+                </>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

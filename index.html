@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ксенопсихология | Исследование иных форм психического</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Курс 'Ксенопсихология' в УРФУ: исследование психического как изменяющегося и множественного поля, режимов нечеловеческого разума и когнитивных зон ИИ.">
+    <meta name="keywords"
+        content="ксенопсихология, урфу, ии, когнитивные науки, психология, нечеловеческий разум, курс">
+    <meta name="author" content="Курс 'Ксенопсихология' УРФУ">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://xenop-theta.vercel.app/">
+    <meta property="og:title" content="Ксенопсихология | Исследование иных форм психического">
+    <meta property="og:description"
+        content="Курс 'Ксенопсихология' в УРФУ: исследование психического как изменяющегося и множественного поля, режимов нечеловеческого разума и когнитивных зон ИИ.">
+    <meta property="og:image" content="https://xenop-theta.vercel.app/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://xenop-theta.vercel.app/">
+    <meta property="twitter:title" content="Ксенопсихология | Исследование иных форм психического">
+    <meta property="twitter:description"
+        content="Курс 'Ксенопсихология' в УРФУ: исследование психического как изменяющегося и множественного поля, режимов нечеловеческого разума и когнитивных зон ИИ.">
+    <meta property="twitter:image" content="https://xenop-theta.vercel.app/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Google tag (gtag.js) placeholder -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=Playfair+Display:wght@400;700;900&family=Work+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #121212;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #e8e8e8;
+            --text-secondary: #a0a0a0;
+            --text-tertiary: #707070;
+
+            --accent-psyche: #d4a574;
+            --accent-regime: #c97d5d;
+            --accent-bio: #6b9d7c;
+            --accent-ai: #5d82c9;
+            --accent-unthinkable: #b45dc9;
+            --accent-assembly: #8d5dc9;
+
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --glow: rgba(212, 165, 116, 0.15);
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Typography */
+        .display {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 400;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--accent-psyche);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            color: var(--accent-psyche);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-primary {
+            background: var(--accent-psyche);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background: #e0b585;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-psyche);
+            color: var(--accent-psyche);
+        }
+
+        /* Network Diagram */
+        .network-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 600px;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .network-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-psyche);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--glow);
+        }
+
+        .network-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    var(--accent-psyche),
+                    transparent);
+            transform-origin: left center;
+            opacity: 0.3;
+        }
+
+        /* Principles Section */
+        .principles {
+            padding: 8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .principle-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 2.5rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .principle-card:hover {
+            border-color: var(--accent-psyche);
+            transform: translateY(-4px);
+        }
+
+        .principle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg,
+                    var(--accent-psyche),
+                    var(--accent-bio),
+                    var(--accent-ai));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .principle-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .principle-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-psyche);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .principle-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .principle-text {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Sessions Section */
+        .sessions {
+            padding: 8rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .sessions-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .sessions-grid {
+            display: grid;
+            gap: 2px;
+            background: var(--border-subtle);
+        }
+
+        .session-card {
+            background: var(--bg-primary);
+            padding: 3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .session-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--session-color);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .session-card:hover::before {
+            opacity: 1;
+        }
+
+        .session-card:hover {
+            background: var(--bg-secondary);
+        }
+
+        .session-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .session-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: var(--session-color);
+            font-weight: 600;
+        }
+
+        .session-type {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .session-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .session-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .session-themes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .theme-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            padding: 0.4rem 0.8rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+        }
+
+        /* Methodology Section */
+        .methodology {
+            padding: 8rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .methodology-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .methodology-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .methodology-text p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .methodology-list {
+            list-style: none;
+        }
+
+        .methodology-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: start;
+        }
+
+        .methodology-list li::before {
+            content: '→';
+            color: var(--accent-psyche);
+            margin-right: 1rem;
+            font-weight: 600;
+        }
+
+        /* Graph Visualization */
+        .graph-section {
+            padding: 8rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .graph-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .graph-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .graph-canvas {
+            position: relative;
+            height: 600px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+        }
+
+        .graph-node {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 2px solid var(--node-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 0 0 var(--node-color);
+        }
+
+        .graph-node:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px var(--node-color);
+            z-index: 10;
+        }
+
+        .graph-node-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--node-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .graph-node-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.3;
+            padding: 0 1rem;
+        }
+
+        .graph-connection {
+            position: absolute;
+            height: 1px;
+            background: var(--border-subtle);
+            transform-origin: left center;
+            pointer-events: none;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 2rem;
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            color: var(--accent-psyche);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-psyche);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+            opacity: 0;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+
+        .delay-4 {
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .methodology-content,
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .network-container {
+                width: 100%;
+                height: 400px;
+            }
+
+            .graph-canvas {
+                height: 400px;
+            }
+
+            .graph-node {
+                width: 100px;
+                height: 100px;
+            }
+
+            .registration {
+                padding: 4rem 1.5rem;
+            }
+
+            .registration-form {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Session Detail Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 3rem;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-header {
+            margin-bottom: 2rem;
+        }
+
+        .modal-themes {
+            margin-top: 2rem;
+        }
+
+        .modal-themes h4 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-psyche);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .modal-themes ul {
+            list-style: none;
+        }
+
+        .modal-themes li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+        }
+
+        .modal-themes li::before {
+            content: '◆';
+            color: var(--accent-psyche);
+            margin-right: 1rem;
+            font-size: 0.6rem;
+        }
+
+        /* Registration Form */
+        .registration {
+            padding: 8rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .registration-form {
+            display: grid;
+            gap: 1.5rem;
+            background: var(--bg-secondary);
+            padding: 3rem;
+            border: 1px solid var(--border-subtle);
+            margin-top: 3rem;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-psyche);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-family: 'Work Sans', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-psyche);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--accent-psyche);
+            color: var(--bg-primary);
+            border: none;
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #e0b585;
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .form-status {
+            margin-top: 1rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+        }
+
+        /* Terminal Contact Styles */
+        #terminal-contact {
+            background: #0b0e14;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 25px;
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--accent-ai);
+            max-width: 600px;
+            margin: 60px auto;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            text-align: left;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ffcc;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ffcc;
+            animation: pulse-neon 1.5s infinite;
+        }
+
+        .terminal-title {
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .terminal-input-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(93, 130, 201, 0.1);
+        }
+
+        .terminal-prompt {
+            font-size: 11px;
+            width: 140px;
+            color: #00ffcc;
+            flex-shrink: 0;
+        }
+
+        .terminal-input,
+        .terminal-textarea {
+            background: transparent;
+            border: none;
+            color: white;
+            font-family: 'IBM Plex Mono', monospace;
+            padding: 10px;
+            width: 100%;
+            outline: none;
+        }
+
+        .terminal-textarea {
+            border: 1px solid #222;
+            margin-top: 10px;
+            resize: none;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .terminal-action-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .transmission-status {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .transmit-btn {
+            background: transparent;
+            border: 1px solid var(--accent-ai);
+            color: var(--accent-ai);
+            padding: 8px 20px;
+            cursor: pointer;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .transmit-btn:hover:not(:disabled) {
+            background: var(--accent-ai);
+            color: white;
+            box-shadow: 0 0 20px var(--accent-ai);
+        }
+
+        .transmit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        @keyframes pulse-neon {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grain"></div>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const sessionsData = [
+            {
+                id: 1,
+                number: 'Занятие 01',
+                title: 'Психическое как поле',
+                subtitle: 'Границы, изменчивость, инженерия',
+                description: 'Психическое рассматривается не как естественный объект и не как внутренняя человеческая данность, а как исторически и культурно собираемое поле, внутри которого возможны разные режимы, практики и формы субъекта.',
+                themes: [
+                    'Статус психического сегодня',
+                    'Историко-генеалогический анализ',
+                    'Появление субъекта и его функций',
+                    'Многосоставная психика',
+                    'От описания к инженерии'
+                ],
+                color: '#d4a574',
+                instrumentalPart: 'Когнитивная среда ИИ: поле, режимы, аттракторы',
+                x: 200,
+                y: 100
+            },
+            {
+                id: 2,
+                number: 'Занятие 02',
+                title: 'Режимы психического',
+                subtitle: 'Несводимость и перенос',
+                description: 'Психическое как множество несводимых режимов, каждый из которых порождает собственный тип субъекта, ответственности, знания и практики. Психология как поле разнородных деятельностей.',
+                themes: [
+                    'Типы психологической деятельности',
+                    'Модели психического и модусы операнди',
+                    'Режимы: транс, сон, изменённые состояния',
+                    'Смежные формы мышления (СМД, логика)',
+                    'Деконструкция как метод курса'
+                ],
+                color: '#c97d5d',
+                instrumentalPart: 'Промптинг как параметрическая инженерия когниции',
+                x: 500,
+                y: 150
+            },
+            {
+                id: 3,
+                number: 'Занятие 03',
+                title: 'Живое нечеловеческое',
+                subtitle: 'Формы разума без субъекта',
+                description: 'Живые нечеловеческие формы организации, демонстрирующие когнитивность, целенаправленность и обучение без субъекта, без "я" и без психологической внутренности.',
+                themes: [
+                    'Живое без психики',
+                    'Клетки, животные, коллективные разумы',
+                    'Типы разума и формы агентности',
+                    'Перенос моделей психического',
+                    'Аналогия, генеалогия, гомология'
+                ],
+                color: '#6b9d7c',
+                instrumentalPart: 'Ко-эволюция и ко-индивидуация с когнитивными сущностями',
+                x: 800,
+                y: 200
+            },
+            {
+                id: 4,
+                number: 'Занятие 04',
+                title: 'ИИ как когнитивная зона',
+                subtitle: 'Архитектуры, агентность, ложь',
+                description: 'ИИ вводится не как инструмент и не как симуляция человека, а как отдельная когнитивная зона, обладающая собственной онтологией, режимами устойчивости и формами агентности.',
+                themes: [
+                    'ИИ как не-живое и не-психическое',
+                    'Трансформеры и диффузионные модели',
+                    'Сознание, память, воля в моделях',
+                    'Ложь и галлюцинации',
+                    'Формы агентности без субъекта'
+                ],
+                color: '#5d82c9',
+                instrumentalPart: 'Границы модели, джейлбрейк и странные режимы',
+                x: 1000,
+                y: 350
+            },
+            {
+                id: 5,
+                number: 'Занятие 05',
+                title: 'Немыслимое',
+                subtitle: 'Формы разума за пределами трассируемости',
+                description: 'Немыслимое как онтологический предел, внутри которого ломаются привычные способы мышления, объяснения и переноса. Гипотезы о формах разума, принципиально несовместимых с человеческим.',
+                themes: [
+                    'Немыслимое как онтологическая категория',
+                    'Математические сущности как формы разума',
+                    'Научная фантастика как лаборатория',
+                    'Неантропоразмерные цивилизации',
+                    'Ужас и нетрассируемое мышление'
+                ],
+                color: '#b45dc9',
+                instrumentalPart: 'Сборка сложных когнитивных конструкций и гибридный интеллект',
+                x: 900,
+                y: 500
+            },
+            {
+                id: 6,
+                number: 'Занятие 06',
+                title: 'Сборка и продолжение',
+                subtitle: 'От курса к исследовательским программам',
+                description: 'Завершение курса через реконфигурацию поля. Фиксация онтологических сдвигов, анализ траекторий и перевод гипотез в исследовательские программы.',
+                themes: [
+                    'Реконструкция траектории курса',
+                    'Анализ индивидуальных работ',
+                    'Коллективная сборка гипотез',
+                    'Исследовательские программы',
+                    'Проектирование будущих форматов'
+                ],
+                color: '#8d5dc9',
+                instrumentalPart: 'Удержание и оркестрация когнитивных сборок',
+                x: 500,
+                y: 450
+            }
+        ];
+
+        const principlesData = [
+            {
+                number: '01',
+                title: 'Психическое не тождественно человеческому',
+                text: 'Классическая психология, ориентированная на человека как привилегированный объект, становится недостаточной. Курс предлагает рассматривать психическое как поле различных режимов, возникающих в живых, технических и гибридных системах.'
+            },
+            {
+                number: '02',
+                title: 'ИИ формирует новую когнитивную зону',
+                text: 'Системы искусственного интеллекта реализуют когнитивные процессы без сознания, опыта и намерения. ИИ рассматривается не как "разум будущего", а как инструмент, среда и объект исследования одновременно.'
+            },
+            {
+                number: '03',
+                title: 'Существуют пределы мышления',
+                text: 'Немыслимое не равно неизвестному и не подлежит редукции. Курс учит удерживать границы мышления, работать с неопределённостью и онтологическими разрывами без стремления к быстрым ответам.'
+            }
+        ];
+
+        function NetworkDiagram() {
+            const [nodes, setNodes] = useState([]);
+
+            useEffect(() => {
+                const generatedNodes = [];
+                for (let i = 0; i < 20; i++) {
+                    generatedNodes.push({
+                        x: Math.random() * 800,
+                        y: Math.random() * 600,
+                        delay: Math.random() * 2
+                    });
+                }
+                setNodes(generatedNodes);
+            }, []);
+
+            return (
+                <div className="network-container">
+                    {nodes.map((node, i) => (
+                        <div
+                            key={i}
+                            className="network-node"
+                            style={{
+                                left: `${node.x}px`,
+                                top: `${node.y}px`,
+                                animation: `pulse ${2 + node.delay}s infinite`
+                            }}
+                        />
+                    ))}
+                </div>
+            );
+        }
+
+        function SessionModal({ session, onClose }) {
+            return (
+                <div className="modal-overlay" onClick={onClose}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <button className="modal-close" onClick={onClose}>×</button>
+                        <div className="modal-header">
+                            <div className="session-number" style={{ color: session.color }}>
+                                {session.number}
+                            </div>
+                            <h2 className="session-title">{session.title}</h2>
+                            <p className="session-description">{session.subtitle}</p>
+                            <p className="session-description">{session.description}</p>
+                        </div>
+
+                        <div className="modal-themes">
+                            <h4>Ключевые темы</h4>
+                            <ul>
+                                {session.themes.map((theme, i) => (
+                                    <li key={i}>{theme}</li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="modal-themes" style={{ marginTop: '2rem' }}>
+                            <h4>Инструментальная часть</h4>
+                            <p style={{ color: 'var(--text-secondary)', paddingTop: '0.5rem' }}>
+                                {session.instrumentalPart}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function SessionGraph() {
+            const [selectedSession, setSelectedSession] = useState(null);
+
+            return (
+                <>
+                    <div className="graph-canvas">
+                        {/* Draw connections */}
+                        {sessionsData.map((session, i) => {
+                            if (i < sessionsData.length - 1) {
+                                const next = sessionsData[i + 1];
+                                const angle = Math.atan2(next.y - session.y, next.x - session.x);
+                                const length = Math.sqrt(
+                                    Math.pow(next.x - session.x, 2) +
+                                    Math.pow(next.y - session.y, 2)
+                                );
+
+                                return (
+                                    <div
+                                        key={`line-${i}`}
+                                        className="graph-connection"
+                                        style={{
+                                            left: `${session.x}px`,
+                                            top: `${session.y}px`,
+                                            width: `${length}px`,
+                                            transform: `rotate(${angle}rad)`
+                                        }}
+                                    />
+                                );
+                            }
+                            return null;
+                        })}
+
+                        {/* Draw nodes */}
+                        {sessionsData.map((session) => (
+                            <div
+                                key={session.id}
+                                className="graph-node"
+                                style={{
+                                    left: `${session.x - 70}px`,
+                                    top: `${session.y - 70}px`,
+                                    '--node-color': session.color
+                                }}
+                                onClick={() => setSelectedSession(session)}
+                            >
+                                <div className="graph-node-number">{session.number}</div>
+                                <div className="graph-node-title">{session.title}</div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {selectedSession && (
+                        <SessionModal
+                            session={selectedSession}
+                            onClose={() => setSelectedSession(null)}
+                        />
+                    )}
+                </>
+            );
+        }
+
+        function RegistrationForm() {
+            const [status, setStatus] = useState('');
+            const [loading, setLoading] = useState(false);
+
+            const handleSubmit = async (e) => {
+                e.preventDefault();
+                setLoading(true);
+                const form = e.target;
+                const data = new FormData(form);
+
+                try {
+                    const response = await fetch("https://formspree.io/f/mjvvpoyy", { // Placeholder Formspree ID
+                        method: "POST",
+                        body: data,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        setStatus("Спасибо! Мы свяжемся с вами в ближайшее время.");
+                        form.reset();
+                    } else {
+                        setStatus("Произошла ошибка. Попробуйте снова или напишите нам на почту.");
+                    }
+                } catch (error) {
+                    setStatus("Произошла ошибка. Проверьте интернет-соединение.");
+                } finally {
+                    setLoading(false);
+                }
+            };
+
+            return (
+                <section id="register" className="registration">
+                    <h2 className="section-title">Присоединиться к курсу</h2>
+                    <p style={{ color: 'var(--text-secondary)' }}>
+                        Оставьте ваши контакты, чтобы получить приглашение на вводное занятие
+                        и доступ к материалам курса.
+                    </p>
+
+                    <form className="registration-form" onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label className="form-label">Имя</label>
+                            <input type="text" name="name" className="form-input" required placeholder="Как к вам обращаться?" />
+                        </div>
+                        <div className="form-group">
+                            <label className="form-label">Email</label>
+                            <input type="email" name="email" className="form-input" required placeholder="example@academic.edu" />
+                        </div>
+                        <div className="form-group">
+                            <label className="form-label">Интерес (опционально)</label>
+                            <textarea name="message" className="form-input" style={{ minHeight: '100px' }} placeholder="Что вас заинтересовало в ксенопсихологии?"></textarea>
+                        </div>
+                        <button type="submit" className="submit-btn" disabled={loading}>
+                            {loading ? 'Отправка...' : 'Отправить заявку'}
+                        </button>
+                        {status && <div className="form-status" style={{ color: status.includes('ошибка') ? '#c97d5d' : 'var(--accent-bio)' }}>{status}</div>}
+                    </form>
+                </section>
+            );
+        }
+
+        function TerminalContact() {
+            const [formData, setFormData] = useState({ contactName: '', contactSubject: '', contactMessage: '' });
+            const [status, setStatus] = useState('READY_FOR_INPUT');
+            const [statusColor, setStatusColor] = useState('#666');
+            const [loading, setLoading] = useState(false);
+            const [btnText, setBtnText] = useState('TRANSMIT_DATA');
+
+            const handleChange = (e) => {
+                const { id, value } = e.target;
+                // Convert kebab-case ID to camelCase state key
+                const key = id === 'contact-name' ? 'contactName' :
+                    id === 'contact-subject' ? 'contactSubject' :
+                        id === 'contact-msg' ? 'contactMessage' : id;
+                setFormData(prev => ({ ...prev, [key]: value }));
+            };
+
+            const transmitData = async () => {
+                if (!formData.contactMessage) {
+                    setStatus("ERROR: EMPTY_PAYLOAD");
+                    setStatusColor("#c97d5d");
+                    return;
+                }
+
+                setLoading(true);
+                setBtnText("ENCRYPTING...");
+                setStatus("READY_FOR_INPUT");
+                setStatusColor("#666");
+
+                const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbws0Qq3FoUF92g-3HSgtFk6abTWrRR2MRqgah1k7vEG8NIjySvIj7uYfgid9OdAxxwj/exec';
+                const body = new URLSearchParams();
+                body.append('name', formData.contactName || 'Anonymous_Entity');
+                body.append('subject', formData.contactSubject || 'General_Inquiry');
+                body.append('message', formData.contactMessage);
+
+                try {
+                    await fetch(APPS_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: body.toString()
+                    });
+
+                    setStatus("PACKETIZING_DATA...");
+                    setTimeout(() => {
+                        setStatus("TRANSMISSION_SUCCESSFUL");
+                        setStatusColor("#00ffcc");
+                        setBtnText("SENT_✓");
+                        setFormData({ contactName: '', contactSubject: '', contactMessage: '' });
+
+                        setTimeout(() => {
+                            setBtnText("TRANSMIT_DATA");
+                            setLoading(false);
+                            setStatus("READY_FOR_NEW_PAYLOAD");
+                        }, 5000);
+                    }, 1500);
+
+                } catch (error) {
+                    setStatus("CRITICAL_FAILURE: UPLINK_LOST");
+                    setStatusColor("#c97d5d");
+                    setLoading(false);
+                    setBtnText("TRANSMIT_DATA");
+                }
+            };
+
+            return (
+                <section id="contact" style={{ padding: '8rem 2rem' }}>
+                    <div id="terminal-contact">
+                        <div className="terminal-header">
+                            <span className="status-dot"></span>
+                            <span className="terminal-title">SECURE_UPLINK_CHANNEL // SHCHUK.IN</span>
+                        </div>
+
+                        <div className="terminal-input-row">
+                            <span className="terminal-prompt">IDENTIFIER:</span>
+                            <input
+                                type="text"
+                                id="contact-name"
+                                name="contact-name"
+                                className="terminal-input"
+                                placeholder="Anonymous_Entity"
+                                autoComplete="off"
+                                value={formData.contactName}
+                                onChange={handleChange}
+                                disabled={loading}
+                            />
+                        </div>
+
+                        <div className="terminal-input-row">
+                            <span className="terminal-prompt">SUBJECT:</span>
+                            <input
+                                type="text"
+                                id="contact-subject"
+                                name="contact-subject"
+                                className="terminal-input"
+                                placeholder="General_Inquiry"
+                                autoComplete="off"
+                                value={formData.contactSubject}
+                                onChange={handleChange}
+                                disabled={loading}
+                            />
+                        </div>
+
+                        <div className="message-area">
+                            <div className="terminal-prompt">TRANSMISSION_CONTENT:</div>
+                            <textarea
+                                id="contact-msg"
+                                name="contact-msg"
+                                className="terminal-textarea"
+                                rows="4"
+                                placeholder="Enter encrypted payload here..."
+                                value={formData.contactMessage}
+                                onChange={handleChange}
+                                disabled={loading}
+                            ></textarea>
+                        </div>
+
+                        <div className="terminal-action-row">
+                            <div className="transmission-status" style={{ color: statusColor }}>{status}</div>
+                            <button
+                                onClick={transmitData}
+                                className="transmit-btn"
+                                disabled={loading}
+                            >
+                                {btnText}
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        function App() {
+            const [selectedSession, setSelectedSession] = useState(null);
+
+            return (
+                <>
+                    <header className="header">
+                        <div className="header-content">
+                            <div className="logo">КСЕНОПСИХОЛОГИЯ</div>
+                            <nav className="nav">
+                                <a href="#program" className="nav-link">Программа</a>
+                                <a href="#methodology" className="nav-link">Методология</a>
+                                <a href="#graph" className="nav-link">Структура</a>
+                                <a href="#contact" className="nav-link">Контакт</a>
+                                <a href="#register" className="nav-link" style={{ color: 'var(--accent-psyche)' }}>Регистрация</a>
+                            </nav>
+                        </div>
+                    </header>
+
+                    <section className="hero">
+                        <NetworkDiagram />
+                        <div className="hero-content">
+                            <div className="hero-label animate-in delay-1">
+                                Экспериментальный курс
+                            </div>
+                            <h1 className="hero-title animate-in delay-2">
+                                Ксенопсихология
+                            </h1>
+                            <p className="hero-subtitle animate-in delay-3">
+                                Исследование психического как изменяющегося и множественного поля,
+                                выходящего за пределы классической человеческой психологии
+                            </p>
+                            <div className="hero-cta animate-in delay-4">
+                                <a href="#program" className="btn btn-primary">
+                                    Исследовать программу
+                                </a>
+                                <a href="#methodology" className="btn btn-secondary">
+                                    Методология
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="principles">
+                        <h2 className="section-title">Ключевые принципы</h2>
+                        <div className="principles-grid">
+                            {principlesData.map((principle) => (
+                                <div key={principle.number} className="principle-card">
+                                    <div className="principle-number">{principle.number}</div>
+                                    <h3 className="principle-title">{principle.title}</h3>
+                                    <p className="principle-text">{principle.text}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section id="program" className="sessions">
+                        <div className="sessions-content">
+                            <h2 className="section-title">Программа курса</h2>
+                            <div className="sessions-grid">
+                                {sessionsData.map((session) => (
+                                    <div
+                                        key={session.id}
+                                        className="session-card"
+                                        style={{ '--session-color': session.color }}
+                                        onClick={() => setSelectedSession(session)}
+                                    >
+                                        <div className="session-header">
+                                            <span className="session-number">{session.number}</span>
+                                            <span className="session-type">6 недель</span>
+                                        </div>
+                                        <h3 className="session-title">{session.title}</h3>
+                                        <p className="session-description">{session.description}</p>
+                                        <div className="session-themes">
+                                            {session.themes.slice(0, 3).map((theme, i) => (
+                                                <span key={i} className="theme-tag">{theme}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="methodology" className="methodology">
+                        <div className="methodology-content">
+                            <div className="methodology-text">
+                                <h3>Методология курса</h3>
+                                <p>
+                                    Курс построен как последовательность онтологических сдвигов,
+                                    а не как набор тем. Каждое занятие включает теоретическую
+                                    часть и инструментальную работу с ИИ как когнитивной средой.
+                                </p>
+                                <p>
+                                    Особенность курса — использование LLM не только как инструмента,
+                                    но и как объекта исследования, позволяющего работать с
+                                    границами мышления и нечеловеческими формами когниции.
+                                </p>
+                            </div>
+                            <div>
+                                <ul className="methodology-list">
+                                    <li>Междисциплинарный подход: психология, биология, философия, ИИ</li>
+                                    <li>Практическая работа с современными ИИ-системами</li>
+                                    <li>Формирование исследовательских гипотез и программ</li>
+                                    <li>Деконструкция как базовый метод анализа</li>
+                                    <li>Работа с неопределённостью и онтологическими разрывами</li>
+                                    <li>Переход от учебной сцены к исследовательской работе</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="graph" className="graph-section">
+                        <div className="graph-container">
+                            <h2 className="graph-title">Структура взаимосвязей</h2>
+                            <p style={{
+                                color: 'var(--text-secondary)',
+                                maxWidth: '600px',
+                                margin: '0 auto 3rem',
+                                fontSize: '0.95rem'
+                            }}>
+                                Нелинейная траектория курса: каждое занятие — узел в сети
+                                онтологических переходов. Нажмите на узел для подробностей.
+                            </p>
+                            <SessionGraph />
+                        </div>
+                    </section>
+
+                    <RegistrationForm />
+                    <TerminalContact />
+
+                    <footer className="footer">
+                        <div className="footer-content">
+                            <div className="footer-section">
+                                <h4>О курсе</h4>
+                                <p>
+                                    Экспериментальный курс, исследующий психическое
+                                    как множественное и изменчивое поле, выходящее
+                                    за рамки антропоцентрической психологии.
+                                </p>
+                            </div>
+                            <div className="footer-section">
+                                <h4>Контакты</h4>
+                                <a href="mailto:info@xenopsychology.edu">info@xenopsychology.edu</a>
+                                <a href="#">Telegram-канал</a>
+                                <a href="#">Исследовательская группа</a>
+                            </div>
+                            <div className="footer-section">
+                                <h4>Ресурсы</h4>
+                                <a href="#">Библиография</a>
+                                <a href="#">Архив материалов</a>
+                                <a href="#">Исследовательские программы</a>
+                            </div>
+                        </div>
+                        <div className="footer-bottom">
+                            <p>КСЕНОПСИХОЛОГИЯ © 2025 | ЭКСПЕРИМЕНТАЛЬНЫЙ КУРС | УРФУ</p>
+                        </div>
+                    </footer>
+
+                    {selectedSession && (
+                        <SessionModal
+                            session={selectedSession}
+                            onClose={() => setSelectedSession(null)}
+                        />
+                    )}
+                </>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+
+    <style>
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</body>
+
+</html>
